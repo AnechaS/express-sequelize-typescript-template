@@ -1,4 +1,4 @@
-version: "3.7"
+version: '3.7'
 
 services:
   app:
@@ -23,4 +23,3 @@ services:
       - MYSQL_ROOT_PASSWORD=123456
       - MYSQL_DATABASE=sample
     tty: true
-    

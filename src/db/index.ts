@@ -4,7 +4,7 @@ import logger from '../common/logger';
 
 const { DB_HOST, DB_PORT, DB_NAME, DB_USER, DB_PASSWORD, DB_LOGGING } = process.env;
 
-const db = new Sequelize(DB_NAME!, DB_USER!, DB_PASSWORD, {
+export const sequelize = new Sequelize(DB_NAME!, DB_USER!, DB_PASSWORD, {
   host: DB_HOST,
   port: +DB_PORT! || 3306,
   dialect: 'mysql',
@@ -17,7 +17,7 @@ const db = new Sequelize(DB_NAME!, DB_USER!, DB_PASSWORD, {
   },
 });
 
-db.sync({ alter: true }).then(
+sequelize.sync({ alter: true }).then(
   () => {
     logger.debug('Connection has been established successfully.');
   },
@@ -26,8 +26,8 @@ db.sync({ alter: true }).then(
   }
 );
 
-Object.values(db.models).forEach((model) => {
+Object.values(sequelize.models).forEach((model) => {
   logger.debug(`Loaded model ${model.name}`);
 });
 
-export default db;
+export default sequelize;
