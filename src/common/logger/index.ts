@@ -1,3 +1,7 @@
+/**
+ * TODO: Use Winston, Pino, etc. instead.
+ */
+
 const info = (...message) => console.log('[INFO] ', ...message);
 const debug = (...message) => console.log('[DEBUG] ', ...message);
 const error = (...message) => console.log('[ERROR] ', ...message);
