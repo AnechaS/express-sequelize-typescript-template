@@ -1,0 +1,15 @@
+NotFound:
+  statusCode: 400
+  message: 'Not Found'
+
+ResourceNotFound:
+  statusCode: 400
+  message: 'The resource does not exist.'
+
+ValidationError:
+  statusCode: 1001
+  message: 'Validation Error'
+  errors:
+    - path: 'field'
+      location: 'body'
+      message: 'error message'

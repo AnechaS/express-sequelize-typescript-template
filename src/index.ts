@@ -15,5 +15,6 @@ const quit = () => {
   db.close();
   server.close();
 };
+
 process.on('SIGINT', quit);
 process.on('SIGTERM', quit);

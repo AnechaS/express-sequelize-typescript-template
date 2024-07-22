@@ -1,0 +1,39 @@
+Error:
+  type: object
+  properties:
+    code:
+      type: integer
+      description: Error code
+      example: 1001
+    message:
+      type: string
+      description: Error message
+      example: 'Something went wrong'
+
+ValidationError:
+  allOf:
+    - $ref: '#/Error'
+    - properties:
+        errors:
+          type: array
+          description: Validation detail errors
+          items:
+            type: object
+            properties:
+              path:
+                type: string
+              location:
+                type: string
+                enum:
+                  - query
+                  - body
+                  - params
+                  - headers
+                  - cookie
+              message:
+                type: string
+    - example:
+        $ref: './examples.yaml#/ValidationError'
+
+GetEntities:
+  type: array

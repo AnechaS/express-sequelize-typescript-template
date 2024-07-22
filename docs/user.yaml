@@ -1,0 +1,206 @@
+paths:
+  '/users':
+    get:
+      tags:
+        - user
+      summary: Get users
+      description: ''
+      parameters:
+        - $ref: './common/parameters.yaml#/query/filters'
+        - $ref: './common/parameters.yaml#/query/fields'
+        - $ref: './common/parameters.yaml#/query/order'
+        - $ref: './common/parameters.yaml#/query/limit'
+        - $ref: './common/parameters.yaml#/query/offset'
+        - $ref: './common/parameters.yaml#/query/include'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: './common/schemas.yaml#/GetEntities'
+                  - type: array
+                    items:
+                      $ref: '#/components/schemas/User'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: './common/schemas.yaml#/Error'
+
+    post:
+      tags:
+        - user
+      summary: Create a new user
+      description: ''
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+                - $ref: '#/components/schemas/User'
+                - required:
+                    - username
+                    - email
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+        '400':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: './common/schemas.yaml#/ValidationError'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: './common/schemas.yaml#/Error'
+
+  '/users/{id}':
+    get:
+      tags:
+        - user
+      summary: Get a user
+      description: ''
+      parameters:
+        - name: id
+          description: User ID
+          in: path
+          required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+        '404':
+          description: Resource Not Found
+          content:
+            application/json:
+              allOf:
+                - schema:
+                  $ref: './common/schemas.yaml#/Error'
+                - example:
+                    $ref: './common/examples.yaml#/ResourceNotFound'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: './common/schemas.yaml#/Error'
+
+    put:
+      tags:
+        - user
+      summary: Update a user
+      description: ''
+      parameters:
+        - name: id
+          description: User Id
+          in: path
+          required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+        '400':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: './common/schemas.yaml#/ValidationError'
+        '404':
+          description: Resource Not Found
+          content:
+            application/json:
+              allOf:
+                - schema:
+                  $ref: './common/schemas.yaml#/Error'
+                - example:
+                    $ref: './common/examples.yaml#/ResourceNotFound'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: './common/schemas.yaml#/Error'
+
+    delete:
+      tags:
+        - user
+      summary: Delete a user
+      description: ''
+      parameters:
+        - name: id
+          description: User ID
+          in: path
+          required: true
+      responses:
+        '203':
+          description: No Content
+          content:
+            application/json:
+              schema:
+                type: object
+        '404':
+          description: Resource Not Found
+          content:
+            application/json:
+              allOf:
+                - schema:
+                  $ref: './common/schemas.yaml#/Error'
+                - example:
+                    $ref: './common/examples.yaml#/ResourceNotFound'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: './common/schemas.yaml#/Error'
+
+components:
+  schemas:
+    User:
+      type: object
+      properties:
+        id:
+          type: number
+          example: 1
+        username:
+          type: string
+          example: developer
+        email:
+          type: integer
+          example: developer@example.com
+        phone:
+          type: string
+          example: '10144'
+        createdAt:
+          type: string
+          format: date-time
+        createdBy:
+          type: string
+        updatedAt:
+          type: string
+          format: date-time
+        updatedBy:
+          type: string
+
+  examples:

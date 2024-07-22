@@ -1,0 +1,39 @@
+openapi: 3.0.3
+
+info:
+  version: v1
+  title: Sample
+  description:
+  # summary:
+  # termsOfService:
+  # contact:
+
+servers:
+  - url: http://localhost:3000/v1
+    description: local
+
+tags:
+  - name: user
+    description: Operations about user
+
+paths:
+  /users:
+    $ref: './user.yaml#/paths/~1users'
+  /users/{id}:
+    $ref: './user.yaml#/paths/~1users~1{id}'
+
+components:
+  schemas:
+    User:
+      $ref: './user.yaml#/components/schemas/User'
+    Error:
+      $ref: './common/schemas.yaml#/Error'
+    ValidationError:
+      $ref: './common/schemas.yaml#/ValidationError'
+
+  securitySchemes:
+    JWT:
+      description: User level security with identity provided by our IAM via JWT token
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

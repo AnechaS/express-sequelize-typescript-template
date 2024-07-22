@@ -1,0 +1,61 @@
+query:
+  filters:
+    name: filters
+    in: query
+    description: Condition to query
+    required: false
+    schema:
+      type: object
+    example:
+      field: 'value'
+
+  fields:
+    name: fields
+    in: query
+    description: Fields to return
+    required: false
+    schema:
+      type: array
+
+  order:
+    name: order
+    in: query
+    description: Sort order. Examples field:asc, field:desc
+    required: false
+    schema:
+      type: array
+
+  limit:
+    name: limit
+    in: query
+    description: Limit for result
+    required: false
+    schema:
+      type: integer
+      default: 50
+
+  offset:
+    name: offset
+    in: query
+    description: Offset for result
+    required: false
+    schema:
+      type: integer
+
+  include:
+    name: include
+    in: query
+    description: Populate relations
+    required: false
+    schema:
+      type: array
+
+body:
+
+params:
+  id:
+    name: 'id'
+    required: true
+    in: path
+
+headers:
