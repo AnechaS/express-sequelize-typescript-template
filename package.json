@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node dist/index.js",
     "dev": "cross-env NODE_ENV=development nodemon src/index.ts",
-    "test": "jest --coverage --runInBand ./tests",
+    "test": "jest --coverage --runInBand ./test",
     "build": "rimraf dist && tsc -p tsconfig.build.json && resolve-tspaths -p tsconfig.build.json",
     "clean": "rimraf dist",
     "cz": "cz",
@@ -38,7 +38,6 @@
     "@types/jest": "^29.5.4",
     "@types/lodash": "^4.14.198",
     "@types/node": "^20.5.9",
-    "@types/oracledb": "^5.3.1",
     "@types/sequelize": "^4.28.15",
     "@types/supertest": "^2.0.12",
     "@typescript-eslint/eslint-plugin": "^6.6.0",
