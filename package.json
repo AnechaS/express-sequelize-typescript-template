@@ -9,7 +9,7 @@
     "test": "jest --coverage --runInBand ./test",
     "build": "rimraf dist && tsc -p tsconfig.build.json && resolve-tspaths -p tsconfig.build.json",
     "clean": "rimraf dist",
-    "cz": "cz",
+    "commit": "cz",
     "lint": "eslint ./src/**/*.ts",
     "release": "standard-version --header=",
     "prepare": "husky"
