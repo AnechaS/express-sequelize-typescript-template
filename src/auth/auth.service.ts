@@ -5,7 +5,7 @@ import httpStatus from 'http-status';
 const login = async (email: string) => {
   const entity = await User.findOne({ where: { email } });
   if (!entity) {
-    throw createHttpError(httpStatus.NOT_FOUND, 'The email is invalid.');
+    throw createHttpError(httpStatus.BAD_REQUEST, 'The email is invalid.');
   }
 
   return {
