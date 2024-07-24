@@ -3,7 +3,7 @@ FROM node:18.17.1 AS builder
 WORKDIR /app
 COPY . ./
 
-RUN npm install && npm run build
+RUN npm install --ignore-scripts && npm run build
 
 FROM node:18.17.1-slim
 
