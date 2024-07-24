@@ -1,17 +1,11 @@
 # Express.js REST API template with Sequelize and TypeScript
 
-Structure is module pattern. 
+Structure is module pattern.
 
 ## Installation
 
 ```bash
 $ npm install
-```
-
-## Running
-
-```bash
-$ npm start
 ```
 
 After starting the server, you can visit http://localhost:3000 in your browser
@@ -20,6 +14,12 @@ After starting the server, you can visit http://localhost:3000 in your browser
 
 ```bash
 $ npm run build
+```
+
+## Running
+
+```bash
+$ npm start
 ```
 
 ## Development
@@ -34,6 +34,18 @@ $ npm run dev
 $ npm test
 ```
 
+## Update version
+
+```bash
+$ npm run release
+```
+
+## Commit
+
+```bash
+$ npm run commit
+```
+
 ## Using Docker
 
 ```bash
@@ -44,7 +56,6 @@ $ docker run --name my-app-example --env-file ./.env -p 3000:3000 -d  my-app
 ## Configuration
 
 Create a `.env` file and configure your settings by referring to the `.env.example` file.
-
 
 ## Locally
 
