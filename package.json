@@ -1,7 +1,7 @@
 {
-  "name": "express-sequelize-typescript-template",
+  "name": "express-ts-sequelize-template",
   "version": "1.0.0",
-  "description": "Express REST API template with Sequelize and TypeScript",
+  "description": "Express REST API template with TypeScript and Sequelize",
   "main": "dist/index.js",
   "scripts": {
     "start": "node dist/index.js",

@@ -1,4 +1,4 @@
-# Express.js REST API template with Sequelize and TypeScript
+# Express.js REST API template with TypeScript and Sequelize
 
 Structure is module pattern.
 
